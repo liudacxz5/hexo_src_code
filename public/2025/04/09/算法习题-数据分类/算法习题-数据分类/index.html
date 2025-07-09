@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>算法习题-数据分类 | RanGeRs_LD</title><meta name="author" content="RanGeRs_LD"><meta name="copyright" content="RanGeRs_LD"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="对一个数据a进行分类，分类方法是，此数据a(4个字节大小)的4个字节相加对一个给定值b取模，如果得到的结果小于一个给定的值c则数据a为有效类型，其类型为取模的值。如果得到的结果大于或者等于c则数据a为无效类型。 比如一个数据a &#x3D; 0x01010101，b &#x3D; 3按照分类方法计算：(0x01 + 0x01 + 0x01 + 0x01) % 3 &#x3D; 1所以如果c等于2，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法习题-数据分类">
+<meta property="og:url" content="https://github.com/liudacxz5/liudacxz5.github.io/2025/04/09/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E6%95%B0%E6%8D%AE%E5%88%86%E7%B1%BB/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E6%95%B0%E6%8D%AE%E5%88%86%E7%B1%BB/index.html">
+<meta property="og:site_name" content="RanGeRs_LD">
+<meta property="og:description" content="对一个数据a进行分类，分类方法是，此数据a(4个字节大小)的4个字节相加对一个给定值b取模，如果得到的结果小于一个给定的值c则数据a为有效类型，其类型为取模的值。如果得到的结果大于或者等于c则数据a为无效类型。 比如一个数据a &#x3D; 0x01010101，b &#x3D; 3按照分类方法计算：(0x01 + 0x01 + 0x01 + 0x01) % 3 &#x3D; 1所以如果c等于2，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/liudacxz5/liudacxz5.github.io/img/avatar.png">
+<meta property="article:published_time" content="2025-04-09T08:03:51.000Z">
+<meta property="article:modified_time" content="2025-04-09T08:03:51.000Z">
+<meta property="article:author" content="RanGeRs_LD">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/liudacxz5/liudacxz5.github.io/img/avatar.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "算法习题-数据分类",
+  "url": "https://github.com/liudacxz5/liudacxz5.github.io/2025/04/09/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E6%95%B0%E6%8D%AE%E5%88%86%E7%B1%BB/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E6%95%B0%E6%8D%AE%E5%88%86%E7%B1%BB/",
+  "image": "https://github.com/liudacxz5/liudacxz5.github.io/img/avatar.png",
+  "datePublished": "2025-04-09T08:03:51.000Z",
+  "dateModified": "2025-04-09T08:03:51.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "RanGeRs_LD",
+      "url": "https://github.com/liudacxz5/liudacxz5.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://github.com/liudacxz5/liudacxz5.github.io/2025/04/09/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E6%95%B0%E6%8D%AE%E5%88%86%E7%B1%BB/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E6%95%B0%E6%8D%AE%E5%88%86%E7%B1%BB/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '算法习题-数据分类',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/blob/master/img/favicon.png" alt="Logo"><span class="site-name">RanGeRs_LD</span></a><a class="nav-page-title" href="/"><span class="site-name">算法习题-数据分类</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">算法习题-数据分类</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-09T08:03:51.000Z" title="发表于 2025-04-09 16:03:51">2025-04-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-04-09T08:03:51.000Z" title="更新于 2025-04-09 16:03:51">2025-04-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/%E4%B9%A0%E9%A2%98/">习题</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>对一个数据a进行分类，<br>分类方法是，此数据a(4个字节大小)的4个字节相加对一个给定值b取模，<br>如果得到的结果小于一个给定的值c则数据a为有效类型，其类型为取模的值。<br>如果得到的结果大于或者等于c则数据a为无效类型。</p>
+<p>比如一个数据a &#x3D; 0x01010101，b &#x3D; 3<br>按照分类方法计算：(0x01 + 0x01 + 0x01 + 0x01) % 3 &#x3D; 1<br>所以如果c等于2，则此a就是有效类型，其类型为1<br>如果c等于1，则此a是无效类型</p>
+<p>又比如一个数据a &#x3D; 0x01010103，b &#x3D; 3<br>按分类方法计算：(0x01 + 0x01 + 0x01 + 0x03) % 3 &#x3D; 0<br>所以如果c &#x3D; 2则此a就是有效类型，其类型为0<br>如果c &#x3D; 0则此a是无效类型</p>
+<p>输入12个数据，<br>第一个数据为c，第二个数据为b，<br>剩余10个数据为需要分类的数据</p>
+<p>请找到有效类型中包含数据最多的类型，<br>并输出该类型含有多少个数据</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入描述</span><br><span class="line">输入12个数据用空格分割，</span><br><span class="line">第一个数据为c，第二个数据为b，</span><br><span class="line">剩余10个数据为需要分类的数据。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输出描述</span><br><span class="line">请找到有效类型中包含数据最多的类型，</span><br><span class="line">并输出该类型含有多少个数据。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">示例一</span><br><span class="line">输入</span><br><span class="line">3 4 256 257 258 259 260 261 262 263 264 265</span><br><span class="line">输出</span><br><span class="line">3</span><br><span class="line">说明</span><br><span class="line">这10个数据4个字节相加后的结果分别是</span><br><span class="line">1 2 3 4 5 6 7 8 9 10</span><br><span class="line">故对4取模的结果为</span><br><span class="line">1 2 3 0 1 2 3 0 1 2</span><br><span class="line">c是3所以012都是有效类型</span><br><span class="line">类型为1和2的有3个数据</span><br><span class="line">类型为0和3的只有两个</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">示例二</span><br><span class="line">输入</span><br><span class="line">1 4 256 257 258 259 260 261 262 263 264 265</span><br><span class="line">输出</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 解题思路：</span></span><br><span class="line"><span class="comment"> * 1、切分输入内容获取 c b 和待分类数据</span></span><br><span class="line"><span class="comment"> * 2、遍历待分类数据算出四个字节的和</span></span><br><span class="line"><span class="comment"> * 3、对四字节的和与 b 取模</span></span><br><span class="line"><span class="comment"> * 3.1、新建map存储 k 为模，v 为满足分类条件的次数，取模的结果和 c 比较，小于的统计结果加1</span></span><br><span class="line"><span class="comment"> * 4、遍历map的值取最大的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">data_classification</span> &#123;</span><br><span class="line">    <span class="comment">// 获取数字的四个字节的和</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">intByteSum</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">            sum += (<span class="type">byte</span>) (x &gt;&gt; i * <span class="number">8</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">solution</span><span class="params">(String str)</span> &#123;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        String[] s = str.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> Integer.parseInt(s[<span class="number">0</span>]);</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> Integer.parseInt(s[<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">2</span>; i &lt; s.length; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> Integer.parseInt(s[i]);</span><br><span class="line">            <span class="comment">// 取模后的结果</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">intByteSumMo</span> <span class="operator">=</span> intByteSum(num) % b;</span><br><span class="line">            <span class="keyword">if</span> (intByteSumMo &lt; c) &#123;</span><br><span class="line">                <span class="keyword">if</span> (map.containsKey(intByteSumMo)) &#123;</span><br><span class="line">                    <span class="comment">//已有key</span></span><br><span class="line">                    map.replace(intByteSumMo, map.get(intByteSumMo) + <span class="number">1</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    map.put(intByteSumMo, <span class="number">1</span>);</span><br><span class="line">                    <span class="comment">//key没有过</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> value : map.values()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (value &gt;= max) &#123;</span><br><span class="line">                max = value;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">solution</span> <span class="operator">=</span> solution(scanner.nextLine());</span><br><span class="line">        System.out.println(solution);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://github.com/liudacxz5/liudacxz5.github.io">RanGeRs_LD</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://github.com/liudacxz5/liudacxz5.github.io/2025/04/09/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E6%95%B0%E6%8D%AE%E5%88%86%E7%B1%BB/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E6%95%B0%E6%8D%AE%E5%88%86%E7%B1%BB/">https://github.com/liudacxz5/liudacxz5.github.io/2025/04/09/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E6%95%B0%E6%8D%AE%E5%88%86%E7%B1%BB/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E6%95%B0%E6%8D%AE%E5%88%86%E7%B1%BB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://github.com/liudacxz5/liudacxz5.github.io" target="_blank">RanGeRs_LD</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post-share"><div class="social-share" data-image="/img/avatar.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/04/12/oracle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%A1%A8%E7%A9%BA%E9%97%B4%E3%80%81%E6%A8%A1%E5%BC%8F%E3%80%81%E8%A1%A8%E4%B8%89%E8%80%85%E7%9A%84%E5%85%B3%E7%B3%BB/oracle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%A1%A8%E7%A9%BA%E9%97%B4%E3%80%81%E6%A8%A1%E5%BC%8F%E3%80%81%E8%A1%A8%E4%B8%89%E8%80%85%E7%9A%84%E5%85%B3%E7%B3%BB/" title="oracle学习笔记-表空间、模式、表三者的关系"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">oracle学习笔记-表空间、模式、表三者的关系</div></div><div class="info-2"><div class="info-item-1">表空间、模式、表三者的关系</div></div></div></a><a class="pagination-related" href="/2025/04/08/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E5%88%A4%E6%96%AD%E6%98%AF%E4%B8%8D%E6%98%AF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E5%88%A4%E6%96%AD%E6%98%AF%E4%B8%8D%E6%98%AF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="算法习题-判断是不是子字符串"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">算法习题-判断是不是子字符串</div></div><div class="info-2"><div class="info-item-1">给定两个字符串 s和 t ，判断 s是否为 t 的子序列。你可以认为 s 和 t 中仅包含英文小写字母。字符串 t 可能会很长（长度n ~&#x3D; 500,000），而 s 是个短字符串（长度 &lt;&#x3D;100）。 字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。（例如，”ace”是”abcde”的一个子序列，而”aec”不是）。 输入描述:共两行，第一行为字符串s,  第二行为字符串t字符串t的长度 1&lt;=n&lt;=500000字符串s的长度 1&lt;=m&lt;=100  输出描述:输出true或者是false，true表示是s是t的子序列，false表示s不是t的子序列 示例1输入abcahbgdc输出true 示例2输入axcahbgdc输出false import java.util.ArrayList;/** * 解题思路： * 1、要求子串顺序和父串的顺序一致并且字串出现的字母一定要在父串内有 * 2、循环遍历子串和父串，如果子串匹配到了父串那么把子串在父串的坐标写入list中 * 3、判断l...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/07/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%80%92%E5%BD%92/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%80%92%E5%BD%92/" title="数据结构-递归"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-01</div><div class="info-item-2">数据结构-递归</div></div><div class="info-2"><div class="info-item-1">简述了算法的基础知识，包含算法复杂度、进制计算、位运算、原码反码补码等</div></div></div></a><a class="pagination-related" href="/2025/04/08/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E5%88%A4%E6%96%AD%E6%98%AF%E4%B8%8D%E6%98%AF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E5%88%A4%E6%96%AD%E6%98%AF%E4%B8%8D%E6%98%AF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="算法习题-判断是不是子字符串"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-08</div><div class="info-item-2">算法习题-判断是不是子字符串</div></div><div class="info-2"><div class="info-item-1">给定两个字符串 s和 t ，判断 s是否为 t 的子序列。你可以认为 s 和 t 中仅包含英文小写字母。字符串 t 可能会很长（长度n ~&#x3D; 500,000），而 s 是个短字符串（长度 &lt;&#x3D;100）。 字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。（例如，”ace”是”abcde”的一个子序列，而”aec”不是）。 输入描述:共两行，第一行为字符串s,  第二行为字符串t字符串t的长度 1&lt;=n&lt;=500000字符串s的长度 1&lt;=m&lt;=100  输出描述:输出true或者是false，true表示是s是t的子序列，false表示s不是t的子序列 示例1输入abcahbgdc输出true 示例2输入axcahbgdc输出false import java.util.ArrayList;/** * 解题思路： * 1、要求子串顺序和父串的顺序一致并且字串出现的字母一定要在父串内有 * 2、循环遍历子串和父串，如果子串匹配到了父串那么把子串在父串的坐标写入list中 * 3、判断l...</div></div></div></a><a class="pagination-related" href="/2025/04/08/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%87%E5%89%B2/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%87%E5%89%B2/" title="算法习题-字符串切割"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-08</div><div class="info-item-2">算法习题-字符串切割</div></div><div class="info-2"><div class="info-item-1">给定一个非空字符串S，其被N个‘-’分隔成N+1的子串，给定正整数K，要求除第一个子串外，其余的子串每K个字符组成新的子串，并用‘-’分隔。 对于新组成的每一个子串，如果它含有的小写字母比大写字母多，则将这个子串的所有大写字母转换为小写字母；反之，如果它含有的大写字母比小写字母多，则将这个子串的所有小写字母转换为大写字母；大小写字母的数量相等时，不做转换。 输入描述:输入为两行，第一行为参数K，第二行为字符串S。输出描述:输出转换后的字符串。 示例1输入312abc-abCABc-4aB@输出12abc-abc-ABC-4aB-@说明：子串为12abc、abCABc、4aB@，第一个子串保留，后面的子串每3个字符一组为abC、ABc、4aB、@，abC中小写字母较多，转换为abc，ABc中大写字母较多，转换为ABC，4aB中大小写字母都为1个，不做转换，@中没有字母，连起来即12abc-abc-ABC-4aB-@  示例2输入1212abc-abCABc-4aB@输出12abc-abCABc4aB@说明子串为12abc、abCABc、4aB@，第一个子串保留，后面的子串每12个字...</div></div></div></a><a class="pagination-related" href="/2025/04/08/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E6%B1%82%E6%9C%80%E5%A4%A7%E6%95%B0/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E6%B1%82%E6%9C%80%E5%A4%A7%E6%95%B0/" title="算法习题-求最大数"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-08</div><div class="info-item-2">算法习题-求最大数</div></div><div class="info-2"><div class="info-item-1">小组中每位都有一张卡片，卡片上是6位以内的正整数。将卡片连起来可以组成多种数字，计算组成的最大数字。 输入描述,号分割的多个正整数字符串，不需要考虑非数字字符情况，小组最多25个人。 输出描述最大的数字字符串 示例1输入：22,221输出：22221说明： 将22和221组合成最大值的排列是22221。 示例2输入：4589,101,41425,9999输出：9999458941425101说明： 将4589, 101, 41425, 9999组合成最大值的排列是9999458941425101。 import java.util.Arrays;/** * 解题思路： * a+b&gt;b+a 那么a比b大 */public class make_max_number &#123;    public static String solution(String str) &#123;        StringBuilder resultBulider = new StringBuilder();        //切分后的字符串        String[] splited ...</div></div></div></a><a class="pagination-related" href="/2024/06/26/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="算法基础知识"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-26</div><div class="info-item-2">算法基础知识</div></div><div class="info-2"><div class="info-item-1">简述了算法的基础知识，包含算法复杂度、进制计算、位运算、原码反码补码等</div></div></div></a><a class="pagination-related" href="/2025/04/08/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E7%BB%9F%E8%AE%A1%E5%B0%84%E5%87%BB%E6%AF%94%E8%B5%9B%E6%88%90%E7%BB%A9/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98-%E7%BB%9F%E8%AE%A1%E5%B0%84%E5%87%BB%E6%AF%94%E8%B5%9B%E6%88%90%E7%BB%A9/" title="算法习题-统计射击比赛成绩"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-08</div><div class="info-item-2">算法习题-统计射击比赛成绩</div></div><div class="info-2"><div class="info-item-1">给定一个射击比赛成绩单，包含多个选手若干次射击的成绩分数，请对每个选手按其最高3个分数之和进行降序排名，输出降序排名后的选手ID序列。条件如下：1、一个选手可以有多个射击成绩的分数，且次序不固定。2、如果一个选手成绩少于3个，则认为选手的所有成绩无效，排名忽略该选手。3、如果选手的成绩之和相等，则成绩之和相等的选手按照其ID降序排列。输入描述： 输入输入第一行，一个整数N，表示该场比赛总共进行了N次射击，产生N个成绩分数（2&lt;=N&lt;=100）。输入第二行，一个长度为N整数序列，表示参与每次射击的选手ID（0&lt;=ID&lt;=99）。输入第三行，一个长度为N整数序列，表示参与每次射击的选手对应的成绩（0&lt;=成绩&lt;=100）。 输出符合题设条件的降序排名后的选手ID序列。 示例输入133,3,7,4,4,4,4,7,7,3,5,5,553,80,68,24,39,76,66,16,100,55,53,80,55 示例输出5,3,7,4 import java.util.ArrayList;import java.util.Collections;impo...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">RanGeRs_LD</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><a id="card-info-btn" href="https://github.com/liudacxz5"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/08/%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E8%8E%B7%E5%8F%96docker%E5%8C%85/%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E8%8E%B7%E5%8F%96docker%E5%8C%85/" title="离线环境获取docker包">离线环境获取docker包</a><time datetime="2025-07-08T02:28:17.213Z" title="发表于 2025-07-08 10:28:17">2025-07-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/08/excel%E6%95%B0%E6%8D%AE%E8%BD%ACinsert%E8%AF%AD%E5%8F%A5/excel%E6%95%B0%E6%8D%AE%E8%BD%ACinsert%E8%AF%AD%E5%8F%A5/" title="将excle数据转化为INSERT语句">将excle数据转化为INSERT语句</a><time datetime="2025-07-08T01:47:28.056Z" title="发表于 2025-07-08 09:47:28">2025-07-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/03/sql%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97%E8%BD%AC%E4%B8%BAjson/sql%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97%E8%BD%AC%E4%B8%BAjson/" title="sql数学运算转为json">sql数学运算转为json</a><time datetime="2025-06-03T09:48:39.000Z" title="发表于 2025-06-03 17:48:39">2025-06-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/03/sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E8%BD%AC%E4%B8%BAjson/sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E8%BD%AC%E4%B8%BAjson/" title="sql查询语句转为json">sql查询语句转为json</a><time datetime="2025-06-03T08:48:55.000Z" title="发表于 2025-06-03 16:48:55">2025-06-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/22/Http%E7%8A%B6%E6%80%81%E7%A0%81%E4%B8%8E%E5%AD%97%E6%AE%B5/Http%E7%8A%B6%E6%80%81%E7%A0%81%E4%B8%8E%E5%AD%97%E6%AE%B5/" title="Http状态码与字段">Http状态码与字段</a><time datetime="2025-05-22T01:12:01.000Z" title="发表于 2025-05-22 09:12:01">2025-05-22</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2024 - 2025 By RanGeRs_LD</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.2.0</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.0-b2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

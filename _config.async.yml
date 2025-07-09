@@ -1,0 +1,27 @@
+theme:
+  default: style-dark
+  language: zh-Hans
+user:
+  name: RanGeRs_LD
+  first_name: 
+  last_name: RanGeRs
+  email: liudacxz5@163.com
+  domain: 站点域名
+  avatar: /img/avatar.jpg
+  describe: 网站简介。
+  rule_text: 暂不接受个人博客以外的友链申请，确保您的网站内容积极向上，文章至少30篇，原创70%以上，部署HTTPS。
+top_bars:
+  - title: 首页
+    url: /
+  - title: 归档
+    url: /archives/
+    children:
+      - title: 标签
+        url: /tags/
+    noswup: true
+toc:
+  enable: true
+  list_number: true
+  post_title: false
+  max_depth: 3
+  min_depth: 1
