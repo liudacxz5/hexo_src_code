@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [14.x]
 
     steps:
       - name: 开始运行
@@ -40,7 +40,7 @@ jobs:
 
       - name: 部署博客
         run: |
-          hexo clean && hexo g && hexo d
+          hexo clean && hexo g && hexo douban && gulp
           cd ./public
           git init
           git config user.name "${{secrets.GIT_NAME}}"
