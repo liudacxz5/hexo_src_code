@@ -40,11 +40,11 @@ jobs:
 
       - name: 部署博客
         run: |
-          hexo clean && hexo g && hexo d
           cd ./public
           git init
           git config --global user.email "${{secrets.GIT_EMAIL}}"
           git config --global user.name "${{secrets.GIT_NAME}}"
+          hexo clean && hexo g && hexo d
           git add .
           git commit -m "Update"
           git push --force --quiet "https://${{secrets.GH_TOKEN}}@${{secrets.GH_REF}}" master:master
