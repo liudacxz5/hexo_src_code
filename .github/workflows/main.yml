@@ -50,6 +50,9 @@ jobs:
           echo "init success"
           git add .
           echo "add success"
+          echo "start commit"
+          git config user.name "${{secrets.GIT_NAME}}"
+          git config user.email "${{secrets.GIT_EMAIL}}"
           git commit -m "Update"
           echo "commit success"
           git push --force --quiet "https://${{secrets.GH_TOKEN}}@${{secrets.GH_REF}}" master:master
