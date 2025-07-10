@@ -104,5 +104,6 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repository: 'https://github.com/liudacxz5/liudacxz5.github.io.git'
+  # repository: 'https://github.com/liudacxz5/liudacxz5.github.io.git'
+  github: https://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@github.com/pandaoh/pandaoh.github.io.git
   branch: 'master'
