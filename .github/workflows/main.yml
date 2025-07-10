@@ -40,10 +40,10 @@ jobs:
 
       - name: 部署博客
         run: |
-          git init
           git config --global user.email "${{secrets.GIT_EMAIL}}"
           git config --global user.name "${{secrets.GIT_NAME}}"
           git config --list
+          git init
           hexo clean && hexo g && hexo d
           git add .
           git commit -m "Update"
