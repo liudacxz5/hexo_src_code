@@ -40,12 +40,18 @@ jobs:
 
       - name: 部署博客
         run: |
-          git config --global user.email "${{secrets.GIT_EMAIL}}"
-          git config --global user.name "${{secrets.GIT_NAME}}"
-          git config --list
-          git init
+          echo "start deploy hexo"
           hexo clean && hexo g && hexo d
+          echo "hexo deploy success"
+          cd ./public
+          git init
+          echo "init success"
+          git config user.name "${{secrets.GIT_NAME}}"
+          git config user.email "${{secrets.GIT_EMAIL}}"
           git add .
+          echo "add success"
           git commit -m "Update"
+          echo "commit success"
           git push --force --quiet "https://${{secrets.GH_TOKEN}}@${{secrets.GH_REF}}" master:master
           git push --force --quiet "https://${{secrets.CD_TOKEN}}@${{secrets.CD_REF}}" master:master
+          echi "git push success"
