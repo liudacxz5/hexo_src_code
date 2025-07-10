@@ -41,13 +41,13 @@ jobs:
       - name: 部署博客
         run: |
           echo "start deploy hexo"
+          git config user.name "${{secrets.GIT_NAME}}"
+          git config user.email "${{secrets.GIT_EMAIL}}"
           hexo clean && hexo g && hexo d
           echo "hexo deploy success"
           cd ./public
           git init
           echo "init success"
-          git config user.name "${{secrets.GIT_NAME}}"
-          git config user.email "${{secrets.GIT_EMAIL}}"
           git add .
           echo "add success"
           git commit -m "Update"
