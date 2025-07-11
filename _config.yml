@@ -105,5 +105,5 @@ theme: butterfly
 deploy:
   type: 'git'
   # repository: 'https://github.com/liudacxz5/liudacxz5.github.io.git'
-  github: https://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@github.com/liudacxz5/liudacxz5.github.io
+  github: https://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@github.com/liudacxz5/liudacxz5.github.io
   branch: 'master'
