@@ -1,4 +1,4 @@
-name: DoubleAm's Blog CI/CD # 脚本 workflow 名称
+name: RanGeR_LD's Blog CI/CD # 脚本 workflow 名称
 
 on:
   push:
@@ -39,7 +39,7 @@ jobs:
           hexo clean
           hexo g
           echo "build blog successful"
-      - name: Deploy DoubleAm's Blog # 设置 git 信息并推送静态博客文件
+      - name: Deploy RanGeR_LD's Blog # 设置 git 信息并推送静态博客文件
         run: |
           git config --global user.name "liudacxz5"
           git config --global user.email "liudacxz5@163.com"
