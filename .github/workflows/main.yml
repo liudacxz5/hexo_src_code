@@ -33,6 +33,7 @@ jobs:
       - name: Install Hexo-cli # 安装 Hexo
         run: |
           npm install -g hexo-cli --save
+          npm install hexo-deployer-git --save
           echo "install hexo successful"
       - name: Build Blog # 编译创建静态博客文件
         run: |
